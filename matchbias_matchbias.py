@@ -58,8 +58,10 @@ DEFAULT_RULES: list[tuple[str, list[str], str | None]] = [
 
 def anchored_pattern(gene: str) -> re.Pattern:
     """词边界模式：词首非字母数字 + 允许一个数字/单字母后缀"""
+    # 词首：前一字符不能是字母/数字（排除 VEGFR）
+    # 词尾：后一字符不能是字母（排除 EGFRXY；但允许 EGFR2 这类数字后缀）
     return re.compile(
-        r"(?<![A-Z0-9])" + gene + r"(?:[0-9]|[A-Z](?![A-Z0-9]))?"
+        r"(?<![A-Z0-9])" + gene + r"(?![A-Z])"
     )
 
 
