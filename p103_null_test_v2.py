@@ -13,9 +13,9 @@ warnings.filterwarnings("ignore")
 sys.stdout.reconfigure(line_buffering=True)
 
 B = "https://www.cbioportal.org/api"
-CACHE = r"D:\stiffness_r3\cache"
+CACHE = "cache"
 POOL = os.path.join(CACHE, "randpool")
-OUT = r"D:\stiffness_r3\results"
+OUT = "results"
 os.makedirs(POOL, exist_ok=True)
 
 STUDIES = {
